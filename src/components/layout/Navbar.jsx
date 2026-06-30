@@ -13,6 +13,18 @@ export default function Navbar() {
   const active = useScrollSpy(nav.map((n) => n.id), 140);
 
   const close = () => setOpen(false);
+  const goToSection = (id) => {
+    close();
+    window.setTimeout(() => {
+      const section = document.getElementById(id);
+      if (!section) return;
+
+      const navOffset = 84;
+      const top = section.getBoundingClientRect().top + window.scrollY - navOffset;
+      window.scrollTo({ top, behavior: 'smooth' });
+      window.history.pushState(null, '', `#${id}`);
+    }, 80);
+  };
 
   return (
     <header
@@ -71,8 +83,9 @@ export default function Navbar() {
 
         {/* Mobile toggle */}
         <button
+          type="button"
           onClick={() => setOpen((v) => !v)}
-          className="grid h-11 w-11 place-items-center rounded-full border border-rosegold/40 text-warm-brown lg:hidden"
+          className="relative z-[60] grid h-11 w-11 shrink-0 place-items-center rounded-full border border-rosegold/40 bg-white/45 text-warm-brown backdrop-blur lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label={open ? 'Close menu' : 'Open menu'}
@@ -95,14 +108,14 @@ export default function Navbar() {
             <ul className="container-x flex flex-col py-4">
               {nav.map((item) => (
                 <li key={item.id}>
-                  <a
-                    href={`#${item.id}`}
-                    onClick={close}
+                  <button
+                    type="button"
+                    onClick={() => goToSection(item.id)}
                     data-active={active === item.id}
-                    className="block rounded-xl px-3 py-3 text-base font-medium text-charcoal/80 transition hover:bg-blush data-[active=true]:text-rosegold"
+                    className="block w-full rounded-xl px-3 py-3 text-left text-base font-medium text-charcoal/80 transition hover:bg-blush data-[active=true]:text-rosegold"
                   >
                     {item.label}
-                  </a>
+                  </button>
                 </li>
               ))}
               <li className="mt-3 flex items-center gap-3 px-1">

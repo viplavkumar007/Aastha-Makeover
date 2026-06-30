@@ -190,6 +190,7 @@ export const whyChooseUs = [
 //  (e.g. '/gallery/bridal-1.jpg'). Tiles with no `src` stay as styled panels.
 // ---------------------------------------------------------------------------
 export const gallery = [
+  { label: 'Shop View', src: '/shop-view.mp4', type: 'video' },
   { label: 'Bridal', src: '' },
   { label: 'Party Makeup', src: '' },
   { label: 'Hair Styling', src: '' },
