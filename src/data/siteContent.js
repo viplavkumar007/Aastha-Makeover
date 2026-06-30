@@ -191,14 +191,7 @@ export const whyChooseUs = [
 // ---------------------------------------------------------------------------
 export const gallery = [
   { label: 'Shop View', src: '/shop-view.mp4', type: 'video' },
-  { label: 'Bridal', src: '' },
-  { label: 'Party Makeup', src: '' },
-  { label: 'Hair Styling', src: '' },
-  { label: 'Facial & Skin', src: '' },
-  { label: 'Body Spa', src: '' },
-  { label: 'Mehendi', src: '' },
-  { label: 'Hair Colour', src: '' },
-  { label: 'Studio Interior', src: '' },
+  { label: 'Aastha Makeover gallery video', src: '/gallery-video.mp4', type: 'video' },
 ];
 
 export const testimonials = [
